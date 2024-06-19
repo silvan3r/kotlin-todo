@@ -1,0 +1,44 @@
+### get all todos
+GET {{host}}/todos
+
+### post new todo
+POST {{host}}/todos
+Content-Type: application/json
+
+{
+  "name": "post something new"
+}
+
+### post invalid todo
+POST {{host}}/todos
+Content-Type: application/json
+
+{
+  "foo": "bar"
+}
+
+### put new todo
+PUT {{host}}/todos
+Content-Type: application/json
+
+{
+  "name": "put something new",
+  "done": true
+}
+
+### get todo by id
+GET {{host}}/todos/667160c0583a5c4f347e6c66
+
+### get todo with invalid id
+GET {{host}}/todos/invalid
+
+### delete todo by id
+DELETE {{host}}/todos/667193f8dc029d039d28cb83
+
+### create or update todo
+PUT {{host}}/todos/667193f8dc029d039d28cb83
+Content-Type: application/json
+
+{
+  "name": "change something 2"
+}
