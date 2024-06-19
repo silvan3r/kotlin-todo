@@ -23,7 +23,7 @@ class TodoHandler {
 
     private suspend fun ObjectId.deleteTodo() = todos.removeIf { it.id == this }
 
-    suspend fun getAll(req: ServerRequest, rootPath: String) =
+    suspend fun getAll(rootPath: String) =
         either {
             todos.asFlow().map { it.withHateoasLinkToItself(rootPath) }.right().bind()
         }.foldServerResponse { todos -> todos.responseOk() }
